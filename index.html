@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOSURES</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h2>Guess the correct output and write down the reason behind the output in details.</h2>
+        </div>
+        <div class="maincontainer">
+            <div class="Q1">
+    <pre class="style">Q1. " function counter(){
+        var counter = 0;
+    
+        function IncreaseCounter() {
+            return counter += 1;
+        };
+    
+        return IncreaseCounter;
+    }
+    
+    var counter = counter();
+    alert(counter());
+    alert(counter());
+    alert(counter());
+    alert(counter());"</pre>
+    <p class="output"> o/p:  1 2 3 4 </p>
+    <pre class="style" id="reason1">REASON: In the above code we have declared two functions: counter and Increase counter , where counter is the outer function and Increasecounter is the inner function ,
+        in the counter function , we have declared a variable called counter with value =0, and in the increasecounter function we have incremented the variable that has been previously declared in the 
+        counter function. every time the counter function is called, it returns a function with increment of the variable counter, hence the output will be incremented by 1. </pre>
+</div>
+<br><br>
+<div class="Q2">
+    <pre class="style">Q2."let count = 0;
+        (function () {
+          if (count === 0) {
+            let count = 1;
+            console.log(count); // What is logged?
+          }
+          console.log(count); // What is logged?
+        })();"</pre>
+    <p class="output">o/p:1 0 </p>
+    <pre class="style" id="reason2">REASON: Here in the above function, firstly we have declared the variable count using let keyword, and we have declared one function , in which we have 
+        applied a conditional check for count(count===0) using the if statement, the condition is true, hence the if statement will be executed, inside the if statement we have 
+        declared the variable count as 1 using let keyword, hence the value of count here will be 1, and then outside the function we have called console statement for count, hence the value of count Here
+        will be 0, which has been already declared at the top.
+    </pre>
+    </div>
+<br><br>
+<div class="Q3">
+    <pre class="style">Q3."for (var i = 0; i < 3; i++) {
+        setTimeout(function log() {
+          console.log(i); // What is logged?
+        }, 1000);
+      }"</pre>
+    <p class="output">o/p:3 3 3 </p>
+    <pre class="style" id="reason3"> REASON: Firstly the for loop is initialized at i=0 and the for loop executes until the i value is less than 3
+        then the code inside the function calls a setTimeout function which schedules a callback function to be executed after 1 second. the callback function logs
+        the current value of i.The loop increments i by 1.When the setTimeout() functions are executed, they all log the value 3, because i has a global scope and its value is 3 by the time the functions are
+         executed.
+    </pre>
+    </div>
+    <br><br>
+
+<div class="Q4">
+    <pre class="style">Q4.Write a code to calculate area of a rectangle using inner function. In this case outer function should accept parameter length and inner function should accept parameter breadth.</pre>
+    <pre class="style">
+        (function outer(length){
+            (function inner(breadth){
+                let area= length*breadth;
+                console.log(area);
+            })(10);
+        })(10);
+    </pre>
+    <p class="output">o/p: 100 </p>
+    </div>
+<br><br>
+<div class="Q5">
+    <pre class="style">Q5.Take a variable in outer function and create an inner function to increase the counter every time it is called</pre>
+    <pre class="style">
+        function outerFunction(counter) {
+            function innerFunction() {
+              counter++;
+              return counter;
+            }
+            return innerFunction;
+          }
+          var increaseCounter = outerFunction(0);
+          console.log(increaseCounter()); 
+          console.log(increaseCounter());
+          console.log(increaseCounter()); 
+          
+    </pre>
+    <p class="output">o/p: 1 2 3 </p>
+    </div>
+<br><br>
+<div class="Q6">
+    <pre class="style">Q6."Print Output
+
+        var a = 12;
+        (function () {
+          alert(a);
+        })();"</pre>
+    <p class="output">o/p: 12 </p>
+    <pre class="reason" id="reason6">REASON: First we defined the variable 'a' with var keyword and with value 12. The varialbe 'a' defined in global scope so we can use it anywhere in the program.
+     As we know 'a' is defined in global scope so we can access it. It will alert the value 12.</pre>
+</div>
+<br><br>
+<div class="Q7">
+    <pre class="style">Q7."var a = 10;
+        var x = (function () {
+          var a = 12;
+          return function () {
+            alert(a);
+          };
+        })();
+        x();"</pre>
+    <p class="output">o/p: 12 </p>
+    <pre class="reason" id="reason6">REASON: Firstly we define a first class function x(function is treated as variable) , inside the function we have declared the variable a with value 12, then 
+        we are returning the same function with an alert, it will alert the value of a. Then x() variable is called as a function hence it will alert 12.
+    </pre>
+    </div>
+<br><br>
+<div class="Q8">
+    <pre class="style">Q8. "var globalVar = ""xyz"";
+
+        (function outerFunc(outerArg) {
+            var outerVar = 'a';
+            
+            (function innerFunc(innerArg) {
+            var innerVar = 'b';
+            
+            console.log(
+                ""outerArg = "" + outerArg + ""\n"" +
+                ""innerArg = "" + innerArg + ""\n"" +
+                ""outerVar = "" + outerVar + ""\n"" +
+                ""innerVar = "" + innerVar + ""\n"" +
+                ""globalVar = "" + globalVar);
+            
+            })(456);
+        })(123);"</pre>
+    <pre class="style" id="o8" >o/p:outerArg = 123
+        innerArg = 456
+        outerVar = a
+        innerVar = b
+        globalVar = xyz </pre>
+        <pre class="reason" id="reason8">REASON: Here we have declared two functions , one outer function outerFunc and another one inner function innerFunc,
+            the outerFunc is passed with an argument outerArg, and inside the outerFunc the variable outerVar has been declared which means outerVar is a local variable to outerFunc().
+         and  the innerfunc is passed with an argument innerArg, and inside the innerFunc, the variable innerVar has been declared which means innerVar is a local variable to innerFunc().
+ globalVar is a global variable, which is accessible from any scope.
+ The code is executed as follows:
+ The outer function outerFunc() is called with the argument 123.
+ outerFunc() defines a local variable outerVar and assigns it the value a.
+ outerFunc() calls innerFunc() with the argument 456.
+ innerFunc() defines a local variable innerVar and assigns it the value b.
+ innerFunc() logs the values of all five variables.
+ innerFunc() returns.
+ outerFunc() returns.
+        </pre>
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>

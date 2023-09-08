@@ -1,0 +1,79 @@
+.maincontainer{
+    position: relative;
+    top: 2px;
+}
+.style, .reason{
+    font-family: 'Times New Roman', Times, serif;
+}
+.Q1{
+    height: 400px;
+    width: 100%;
+    background-color: gold;
+    border: 2px solid black;
+}
+.Q2{
+    height: 300px;
+    width: 100%;
+    background-color: gold;
+    border: 2px solid black;
+}
+.Q3{
+    height: 250px;
+    width: 100%;
+    background-color: gold;
+    border: 2px solid black;
+}
+.Q4{
+    height: 250px;
+    width: 100%;
+    background-color: gold;
+    border: 2px solid black;
+}
+.Q5{
+    height: 320px;
+    width: 100%;
+    background-color: gold;
+    border: 2px solid black;
+}
+.Q6{
+    height: 220px;
+    width: 100%;
+    background-color: gold;
+    border: 2px solid black;
+}
+.Q7{
+    height: 250px;
+    width: 100%;
+    background-color: gold;
+    border: 2px solid black;
+}
+.Q8{
+    height: 680px;
+    width: 100%;
+    background-color: gold;
+    border: 2px solid black;
+}
+.navbar{
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: 70px;
+    border: 2px solid black;
+    background-color:black;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.output{
+    height: 20px;
+    width: 100px;
+    background-color: black;
+    color: aliceblue;
+}
+#o8{
+    height: 100px;
+    width: 150px;
+    background-color: black;
+    color: aliceblue;
+}
